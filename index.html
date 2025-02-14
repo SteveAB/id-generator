@@ -78,9 +78,7 @@
             const data = {geratedID: randomID};
              console.log(data);
        
-             if (window.opener) {
-        window.opener.postMessage({ geratedID: randomID }, window.location.origin); // Use your APEX URL
-    }
+             window.parent.postMessage(data, window.location.origin);
         }
     </script>
 </body>
