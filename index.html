@@ -75,6 +75,9 @@
 
             // Optionally, you can use the token for further actions
             console.log("Embedded Token Value (Random ID):", document.getElementById("hiddenToken").value);
+            const data = {geratedID: randomID};
+             console.log(data);
+            window.parent.postMessage(data, window.location.origin);
         }
     </script>
 </body>
