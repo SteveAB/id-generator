@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Generate a Unique ID</h2>
+        <input type="text" id="name" placeholder="Enter Name">
+        <input type="text" id="surname" placeholder="Enter Surname">
+        <input type="tel" id="phone" placeholder="Enter Phone Number">
+        <button onclick="generateID()">Generate ID</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function generateID() {
+            const name = document.getElementById("name").value.trim();
+            const surname = document.getElementById("surname").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+
+            if (!name || !surname || !phone) {
+                alert("Please fill in all fields");
+                return;
+            }
+
+            // Generate a random ID (combination of timestamp + random number)
+            const randomID = `ID-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+
+            document.getElementById("result").innerText = `Generated ID: ${randomID}\n phone ID: ${phone}`;
+        }
+    </script>
+</body>
+</html>
