@@ -77,10 +77,9 @@
             console.log("Embedded Token Value (Random ID):", document.getElementById("hiddenToken").value);
             const data = {geratedID: randomID};
              console.log(data);
-            window.parent.postMessage(data,window.location.origin);
-
+       
              if (window.opener) {
-        window.opener.postMessage({ generatedID: randomID }, window.location.origin); // Use your APEX URL
+        window.opener.postMessage({ geratedID: randomID }, window.location.origin); // Use your APEX URL
     }
         }
     </script>
