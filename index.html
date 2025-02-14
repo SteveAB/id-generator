@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ID Generator</title>
+    <title>Generate ID with Token</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,6 +24,7 @@
             margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 5px;
+            text-align: center;
         }
         button {
             padding: 10px 15px;
@@ -40,33 +41,40 @@
             margin-top: 20px;
             font-weight: bold;
         }
+        #hiddenToken {
+            display: none;  /* Hide token element */
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Generate a Unique ID</h2>
-        <input type="text" id="name" placeholder="Enter Name">
-        <input type="text" id="surname" placeholder="Enter Surname">
+        <input type="text" id="name" placeholder="Enter Name " maxlength="2000">
+        <input type="text" id="surname" placeholder="Enter Surname" maxlength="2000">
         <input type="tel" id="phone" placeholder="Enter Phone Number">
         <button onclick="generateID()">Generate ID</button>
         <p id="result"></p>
+        <input type="text" id="hiddenToken" readonly> <!-- Hidden Token Field -->
     </div>
 
     <script>
         function generateID() {
+            // Get values from input fields
             const name = document.getElementById("name").value.trim();
             const surname = document.getElementById("surname").value.trim();
             const phone = document.getElementById("phone").value.trim();
 
-            if (!name || !surname || !phone) {
-                alert("Please fill in all fields");
-                return;
-            }
+            // Generate a random 6-digit ID
+            const randomID = Math.floor(100000 + Math.random() * 900000);
 
-            // Generate a random ID (combination of timestamp + random number)
-            const randomID = `ID-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+            // Display the generated ID and the phone number
+            document.getElementById("result").innerText = `Generated ID: ${randomID}\nPhone Numbert: ${phone}`;
 
-            document.getElementById("result").innerText = `Generated ID: ${randomID}\n phone ID: ${phone}`;
+            // Set the random ID to the hidden token field (acting as embedded token)
+            document.getElementById("hiddenToken").value = `ID: ${randomID}, Phone: ${phone}`;
+
+            // Optionally, you can use the token for further actions
+            console.log("Embedded Token Value (Random ID):", document.getElementById("hiddenToken").value);
         }
     </script>
 </body>
