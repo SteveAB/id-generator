@@ -56,7 +56,15 @@
         <p id="result"></p>
         <input type="text" id="hiddenToken" readonly> <!-- Hidden Token Field -->
     </div>
+    <p id="message">Waiting for parent message...</p>
 
+    <script>
+        window.addEventListener("message", (event) => {
+                     // Display received parent origin
+            document.getElementById("message").innerText = "Parent Origin: " + event.data.origin;
+            console.log("Received message from parent:", event.data);
+        });
+    </script>
     <script>
         function generateID() {
            // Get values from input fields
