@@ -59,6 +59,7 @@
 
     <script>
         function generateID() {
+            console.log(document.referrer);
            // Get values from input fields
             const name = document.getElementById("name").value.trim();
             const surname = document.getElementById("surname").value.trim();
@@ -77,7 +78,7 @@
             console.log("Embedded Token Value (Random ID):", document.getElementById("hiddenToken").value);
             const data = {geratedID: randomID};
              console.log(data);
-       console.log(document.referrer);
+       
              window.parent.postMessage(data, '*');
         }
     </script>
