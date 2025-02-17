@@ -79,7 +79,7 @@
             const data = {geratedID: randomID};
              console.log(data);
        
-             window.parent.postMessage(data, '*');
+             window.parent.postMessage(data, window.location.origin);
         }
     </script>
 </body>
