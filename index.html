@@ -56,15 +56,14 @@
         <p id="result"></p>
         <input type="text" id="hiddenToken" readonly> <!-- Hidden Token Field -->
     </div>
-    <p id="message">Waiting for parent message...</p>
-
+    
     <script>
         window.addEventListener("message", (event) => {
                      // Display received parent origin
-            document.getElementById("message").innerText = "Parent Origin: " + event.data.origin;
             console.log("Received message from parent:", event.data);
         });
     </script>
+    
     <script>
         function generateID() {
            // Get values from input fields
@@ -84,9 +83,9 @@
             // Optionally, you can use the token for further actions
             console.log("Embedded Token Value (Random ID):", document.getElementById("hiddenToken").value);
             const data = {GeneratedID: randomID};
-             console.log(data);
-       
-             window.parent.postMessage(data, window.location.origin);
+            console.log(window.location.origin);
+            console.log(data);       
+            window.parent.postMessage(data, window.location.origin);
         }
     </script>
 </body>
