@@ -77,7 +77,7 @@
             console.log("Embedded Token Value (Random ID):", document.getElementById("hiddenToken").value);
             const data = {geratedID: randomID};
              console.log(data);
-       
+       console.log(document.referrer);
              window.parent.postMessage(data, '*');
         }
     </script>
