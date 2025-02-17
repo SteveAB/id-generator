@@ -48,7 +48,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Generate a Unique ID</h2>
+        <h2>Generate a Unique IDr</h2>
         <input type="text" id="name" placeholder="Enter Name " maxlength="2000">
         <input type="text" id="surname" placeholder="Enter Surname" maxlength="2000">
         <input type="tel" id="phone" placeholder="Enter Phone Number">
@@ -59,7 +59,6 @@
 
     <script>
         function generateID() {
-            console.log(document.referrer);
            // Get values from input fields
             const name = document.getElementById("name").value.trim();
             const surname = document.getElementById("surname").value.trim();
@@ -76,7 +75,7 @@
 
             // Optionally, you can use the token for further actions
             console.log("Embedded Token Value (Random ID):", document.getElementById("hiddenToken").value);
-            const data = {geratedID: randomID};
+            const data = {GeneratedID: randomID};
              console.log(data);
        
              window.parent.postMessage(data, window.location.origin);
