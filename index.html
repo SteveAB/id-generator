@@ -47,13 +47,6 @@
     </style>
 </head>
 <body>
-
-      <script>
-        window.addEventListener("message", (event) => {
-                     // Display received parent origin
-            console.log("Received message from parent:", event.data);
-        });
-    </script>
     <div class="container">
         <h2>Generate a Unique ID</h2>
         <input type="text" id="name" placeholder="Enter Name " maxlength="2000">
@@ -62,10 +55,7 @@
         <button onclick="generateID()">Generate ID</button>
         <p id="result"></p>
         <input type="text" id="hiddenToken" readonly> <!-- Hidden Token Field -->
-    </div>
-    
-  
-    
+    </div> 
     <script>
         function generateID() {
            // Get values from input fields
@@ -86,7 +76,7 @@
             console.log("Embedded Token Value (Random ID):", document.getElementById("hiddenToken").value);
             const data = {GeneratedID: randomID};
             console.log(window.location.origin);
-            console.log'http://qahipapp02.oldfort.co.za:9511')
+            console.log("http://qahipapp02.oldfort.co.za:9511");
             console.log(data);       
             window.parent.postMessage(data, window.location.origin);
         }
